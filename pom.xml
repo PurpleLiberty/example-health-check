@@ -16,7 +16,8 @@
   ~  limitations under the License.
   ~
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.openliberty.example</groupId>
@@ -32,22 +33,22 @@
 
         <http.port>9080</http.port>
         <https.port>9443</https.port>
-      
+
         <version.arquillian-cube>1.18.2</version.arquillian-cube>
         <version.awaitility>4.0.1</version.awaitility>
         <version.fabric8-maven-plugin>4.3.0</version.fabric8-maven-plugin>
-        <version.maven-surefire-plugin>2.22.2</version.maven-surefire-plugin> 
+        <version.maven-surefire-plugin>2.22.2</version.maven-surefire-plugin>
         <version.restassured>4.1.1</version.restassured>
         <version.resteasy>3.6.2.Final</version.resteasy>
-     
 
-        <fabric8.generator.from>docker.io/openliberty/open-liberty-s2i:19.0.0.9</fabric8.generator.from>      
+
+        <fabric8.generator.from>docker.io/openliberty/open-liberty-s2i:19.0.0.9</fabric8.generator.from>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-           
-         
+
+
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
@@ -68,26 +69,28 @@
     <dependencies>
         <!-- Open Liberty Features -->
         <dependency>
-                <groupId>jakarta.platform</groupId>
-                <artifactId>jakarta.jakartaee-api</artifactId>
-                <version>8.0.0</version>
-                <scope>provided</scope>
-              </dependency>
-              <dependency>
-                <groupId>org.eclipse.microprofile</groupId>
-                <artifactId>microprofile</artifactId>
-                <version>3.3</version>
-                <type>pom</type>
-                <scope>provided</scope>
-              </dependency>
-      
-        <!-- For tests -->
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>8.0.0</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>3.3</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- For tests -->
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
             <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-client</artifactId>
@@ -118,7 +121,7 @@
             <artifactId>rest-assured</artifactId>
             <version>${version.restassured}</version>
             <scope>test</scope>
-          </dependency>
+        </dependency>
         <dependency>
             <groupId>org.arquillian.cube</groupId>
             <artifactId>arquillian-cube-openshift</artifactId>
@@ -188,7 +191,7 @@
                 <artifactId>liberty-maven-plugin</artifactId>
                 <version>3.2.4</version>
 
-                <configuration>                   
+                <configuration>
                     <bootstrapProperties>
                         <default.http.port>${http.port}</default.http.port>
                         <default.https.port>${https.port}</default.https.port>
@@ -203,7 +206,7 @@
                             <goal>create</goal>
                             <goal>install-feature</goal>
                             <goal>deploy</goal>
-                        </goals>                     
+                        </goals>
                     </execution>
                     <execution>
                         <id>package</id>
@@ -215,7 +218,7 @@
                             <include>runnable</include>
                         </configuration>
                     </execution>
-                   
+
                 </executions>
             </plugin>
             <plugin>
@@ -229,7 +232,7 @@
                     </classpathDependencyExcludes>
                 </configuration>
             </plugin>
-          
+
             <!-- Plugin to run functional tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
