@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package io.openliberty.health;
+package io.openliberty.example.health;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.client.Client;
@@ -31,7 +31,7 @@ import org.eclipse.microprofile.health.HealthCheckResponse;
  */
 @Readiness
 @ApplicationScoped
-public class HealthChecks implements HealthCheck {
+public class HealthReadyCheck implements HealthCheck {
 	
 	 
     @Override
