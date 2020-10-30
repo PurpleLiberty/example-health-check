@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2020 Red Hat, Inc, IBM, and individual contributors.
+ * Copyright 2020 Red Hat, Inc, IBM, and individual contributors.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -30,15 +30,7 @@ import org.eclipse.microprofile.health.HealthCheckResponse;
 public class HealthLiveCheck implements HealthCheck {
 
     @Override
-    public HealthCheckResponse call() {       
-    	MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();
-    long memUsed = memBean.getHeapMemoryUsage().getUsed();
-    long memMax = memBean.getHeapMemoryUsage().getMax();
-
-    return HealthCheckResponse.named(GreetingResource.class.getSimpleName() + " Liveness Check")
-                              .withData("memory used", memUsed)
-                              .withData("memory max", memMax)
-                              .state(memUsed < memMax * 0.9).build();
-     
+    public HealthCheckResponse call() {     
+        return HealthCheckResponse.named("application-live-state").up().build();
     }
 }

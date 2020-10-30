@@ -42,9 +42,9 @@ public class HealthReadyCheck implements HealthCheck {
       
 
     	if (response.getStatus() == 200) {
-    		return HealthCheckResponse.named("server-state").up().build();
+    		return HealthCheckResponse.named("application-ready-state").up().build();
     	} else if ( response.getStatus() == 503){
-    		return HealthCheckResponse.named("server-state").down().build();
+    		return HealthCheckResponse.named("application-ready-state").down().build();
     	} else {
     		throw new RuntimeException("Unexpected status code: " + response.getStatus());
     	}
