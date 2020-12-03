@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Red Hat, Inc, IBM, and individual contributors.
+ * Copyright 2016-2020 Red Hat, Inc, IBM, and individual contributors.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -21,7 +21,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
+import javax.enterprise.context.RequestScoped;
 
+@RequestScoped
 @Path("/")
 public class GreetingResource {
     private static final String template = "Hello, %s!";
